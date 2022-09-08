@@ -30,23 +30,34 @@ Auth::routes();
 
 //Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => ['auth'],
-'prefix' => 'client-area'], function (){
-    // Route::get('/', function () {
-    //     return view('home');
-    // });
+// Route::group(['middleware' => ['auth'],
+// 'prefix' => 'client-area'], function (){
+//     // Route::get('/', function () {
+//     //     return view('home');
+//     // });
 
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-});
+//     Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+// });
 
 Route::group(['prefix' => 'admin','middleware'=> 
     ['auth', 'isAdmin']],function(){
+
+        Route::get('home', function () {
+            return view('home');
+        });
+        
     Route::get('profile',function()
     {
         return view('profile');
     });
+    Route::get('/about', 'MyController@showAbout');
 });
     Route::get('/errors', function()
     {
         return view ('403');
     });
+
+    Route::get('/coba-admin',function(){
+        return view('layouts.admin');
+    });
+    

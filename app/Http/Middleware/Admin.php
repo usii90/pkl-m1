@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 use Auth;
-
 use Closure;
 use Illuminate\Http\Request;
 
@@ -21,7 +20,7 @@ class Admin
         {
             return $next($request);
         }
-            return $redirect('errors');
+            return redirect('errors');
 
     }
 }

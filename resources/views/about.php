@@ -1,3 +1,6 @@
+@extends('layouts.admin')
+
+@section('content')
 <html>
     <body>   
         <h1>Halo</h1>
@@ -5,3 +8,4 @@
         Laravel, emang keren banget ! 
     </body>
 </html>
+@endsection
